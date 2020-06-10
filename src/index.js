@@ -94,7 +94,7 @@ app.delete("/projects/:id", (req, res) => {
 
   const projectIndex = projects.findIndex((project) => project.id === id);
 
-  if (projectIndex > 0) {
+  if (projectIndex < 0) {
     return res.status(400).json({ error: "Project not found." });
   }
   projects.splice(projectIndex, 1);
